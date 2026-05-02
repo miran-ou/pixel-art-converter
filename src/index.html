@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="style.css">
+
+<input type="file" id="imageInput" accept="image/*">
+<label>
+    Color step
+    <input type="number" id="colorStepInput" value="64" min="1" max="255">
+</label>
+
+<label>
+    Pixel size
+    <input type="number" id="pixelSizeInput" value="64" min="8" max="256">
+</label>
+
+<canvas id="originalCanvas"></canvas>
+<canvas id="pixelCanvas"></canvas>
+
+<button id="downloadButton">Download PNG</button>
+
+<script src="main.js"></script>

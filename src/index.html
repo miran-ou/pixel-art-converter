@@ -1,19 +1,73 @@
 <link rel="stylesheet" href="style.css">
 
-<input type="file" id="imageInput" accept="image/*">
-<label>
-    Color step
-    <input type="number" id="colorStepInput" value="64" min="1" max="255">
-</label>
+<header>
+    ドット絵変換ツール
+</header>
 
-<label>
-    Pixel size
-    <input type="number" id="pixelSizeInput" value="64" min="8" max="256">
-</label>
+<section class="controls">
+    <input type="file" id="imageInput" accept="image/*">
 
-<canvas id="originalCanvas"></canvas>
-<canvas id="pixelCanvas"></canvas>
+    <main>
+        <label>
+            Preset
+            <select id="presetSelect">
+                <option value="balanced">Balanced</option>
+                <option value="rpg">RPG character</option>
+                <option value="monster">Monster sprite</option>
+                <option value="cool">Cool dark</option>
+                <option value="retro">Retro strong</option>
+                <option value="natural">Natural colors</option>
+            </select>
+        </label>
 
-<button id="downloadButton">Download PNG</button>
+        <label>
+            Detail
+            <select id="detailSelect">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+        </label>
+
+        <label>
+            Color
+            <select id="colorSelect">
+                <option value="natural">Natural</option>
+                <option value="retro" selected>Retro</option>
+                <option value="strong">Strong</option>
+            </select>
+        </label>
+
+        <input type="hidden" id="colorStepInput" value="64">
+        <input type="hidden" id="pixelSizeInput" value="96">
+
+        <details>
+            <summary>Advanced</summary>
+
+            <label>
+                Mode
+                <select id="modeSelect">
+                    <option value="palette">Game palette</option>
+                    <option value="round">Color step</option>
+                </select>
+            </label>
+
+            <label>
+                Palette
+                <select id="paletteSelect">
+                    <option value="rpg">RPG style</option>
+                    <option value="monster">Monster style</option>
+                    <option value="cool">Cool dark</option>
+                    <option value="retro">Retro style</option>
+                </select>
+            </label>
+    </details>
+</section>        
+
+    <canvas id="originalCanvas"></canvas>
+    <canvas id="pixelCanvas"></canvas>
+
+    <button id="downloadButton">Download PNG</button>
+</main>
 
 <script src="main.js"></script>

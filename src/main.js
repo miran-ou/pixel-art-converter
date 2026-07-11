@@ -3,6 +3,8 @@ const presetSelect = document.getElementById("presetSelect");
 const detailSelect = document.getElementById("detailSelect");
 const colorSelect = document.getElementById("colorSelect");
 const colorStepInput = document.getElementById("colorStepInput");
+const colorStepValue = document.getElementById("colorStepValue");
+const pixelSizeValue = document.getElementById("pixelSizeValue");
 const pixelSizeInput = document.getElementById("pixelSizeInput");
 const modeSelect = document.getElementById("modeSelect");
 const paletteSelect = document.getElementById("paletteSelect");
@@ -156,6 +158,7 @@ const colorSettings = {
     strong: 96
 };
 
+
 const originalContext = originalCanvas.getContext("2d");
 const pixelContext = pixelCanvas.getContext("2d", {
     willReadFrequently: true
@@ -203,10 +206,12 @@ colorSelect.addEventListener("change", () => {
 });
 
 colorStepInput.addEventListener("input", () => {
+    colorStepValue.textContent = colorStepInput.value;
     convertToPixelArt();
 });
 
 pixelSizeInput.addEventListener("input", () => {
+    pixelSizeValue.textContent = pixelSizeInput.value;
     convertToPixelArt();
 });
 
@@ -317,6 +322,9 @@ function applyPreset(presetName) {
 function applySimpleControls() {
     pixelSizeInput.value = detailSettings[detailSelect.value];
     colorStepInput.value = colorSettings[colorSelect.value];
+
+    pixelSizeValue.textContent = pixelSizeInput.value;
+    colorStepValue.textContent = colorStepInput.value;
 }
 
 function roundColor(value, step) {
